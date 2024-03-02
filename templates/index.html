@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: white; 
+            font-family: 'Roboto', sans-serif;
+            color: #131313;
+              
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin: auto; /* Center the card */
+            background-color: #BEEDF8;
+            opacity: 0.7;
+            font-weight: bold;
+            font-family: 'Roboto';
+        }
+        .card-header {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+          
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .btn-primary {
+            border-radius: 20px;
+        }
+
+        .titel{
+              font-family: 'Roboto', sans-serif; 
+              font-weight: 700; 
+              font-size: 36px; 
+              color: #131313; 
+              text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+ 
+  <div class="container">
+    <h1 class="text-center mt-5 mb-3 titel " style="color: #131313;">Hotel  Booking Classification</h1>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+        
+            <div class="card">
+               
+              
+                <div class="card-body">
+                    <form action="{{url_for('predict')}}" method="post">
+                        <div class="row">
+                            <!-- First column -->
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="number_of_adults">Number of Adults</label>
+                                    <input type="text" class="form-control" id="number_of_adults" name="number_of_adults">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="number_of_week_nights">Number of Week Nights</label>
+                                    <input type="text" class="form-control" id="number_of_week_nights" name="number_of_week_nights">
+                                </div>
+                                <div class="form-group">
+                                  <label for="MealType">Meal Type</label>
+                                  <select id="MealType" name="MealType" class="form-control">
+                                      <option value="Meal Plan1">Meal Plan1</option>
+                                      <option value="Meal Plan1">Meal Plan2</option>
+                                      <option value="Meal Plan1">Meal Plan3</option>
+                                      <option value="Meal Plan1">Not selected</option>
+                                  
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="car_parking_space">Car Parking Space</label>
+                                    <input type="text" class="form-control" id="car_parking_space" name="car_parking_space">
+                                </div>
+                                <div class="form-group">
+                                    <label for="roomtype">Room Type</label>
+                                    <select id="roomtype" name="roomtype" class="form-control">
+                                        <option value="Type 1">Type 1</option>
+                                        <option value="Type 2">Type 2</option>
+                                        <option value="Type 3">Type 3</option>
+                                        <option value="Type 4">Type 4</option>
+                                        <option value="Type 5">Type 5</option>
+                                        <option value="Type 6">Type 6</option>
+                                        <option value="Type 7">Type 7</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Second column -->
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="lead_time">Lead Time</label>
+                                    <input type="text" class="form-control" id="lead_time" name="lead_time">
+                                </div>
+                                <div class="form-group">
+                                    <label for="markettype">Market Type</label>
+                                    <select id="markettype" name="markettype" class="form-control">
+                                        <option value="Online">Online</option>
+                                        <option value="Offline">Offline</option>
+                                        <option value="Corporate">Corporate</option>
+                                        <option value="Aviation">Aviation</option>
+                                        <option value="Complementary">Complementary</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="repeated">Repeated</label>
+                                    <input type="text" class="form-control" id="repeated" name="repeated">
+                                </div>
+                                <div class="form-group">
+                                    <label for="average_price">Average Price</label>
+                                    <input type="text" class="form-control" id="average_price" name="average_price">
+                                </div>
+                                <div class="form-group">
+                                    <label for="special_requests">Special Requests</label>
+                                    <input type="text" class="form-control" id="special_requests" name="special_requests">
+                                </div>
+                               
+                            </div>
+                          
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center w-100">
+                          <button type="submit" class="btn btn-primary center px-5 ">Submit</button>
+                        </div>
+                      
+                        {{prediction_text}}
+                  
+                    </form>
+
+                </div>
+            </div>
+            <!-- End of beautifully designed card layout -->
+        </div>
+    </div>
+    <!-- Additional content goes here -->
+ 
+</div>
+
+
+<!-- Include Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
