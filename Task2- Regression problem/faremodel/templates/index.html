@@ -1,0 +1,21 @@
+<!--  index.html  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real Estate Price Prediction</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predict fare</button>
+    </form>
+
+    {% if predicted_fare %}
+    <div>
+        <h2>Predicted fare: {{ predicted_fare }}</h2>
+    </div>
+    {% endif %}
+</body>
+</html>
